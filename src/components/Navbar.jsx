@@ -14,6 +14,7 @@ export default function Navbar() {
         <div>
         {currentUser? (
         <div>
+          <button className='text-white pr-4'>{currentUser.email}</button>
           <Link to='/account'>
             <button className='text-white pr-4'>Account</button>
           </Link>
