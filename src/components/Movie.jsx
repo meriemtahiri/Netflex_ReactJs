@@ -9,12 +9,12 @@ export default function Movie({ elem }) {
     const [like, setLike] = useState(false)
     const { currentUser } = UserAuth()
 
-    const movieID = doc(db, 'users', `${currentUser?.email}`);
+    const movieRef = doc(db, 'users', `${currentUser?.email}`);
 
   const saveShow = async () => {
     if (currentUser?.email) {
       setLike(!like);
-      await updateDoc(movieID, {
+      await updateDoc(movieRef, {
         savedShows: arrayUnion({
           id: elem.id,
           title: elem.title,
